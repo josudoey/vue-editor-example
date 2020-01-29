@@ -1,0 +1,66 @@
+span
+  .toolbar(v-if="enable")
+    button(@click="save")
+      i.fa.fa-save
+    template(v-if="mode==='native'")
+      input(ref="forecolor" type="color" style="display:none" v-model="forecolor")
+      input(ref="backcolor" type="color" style="display:none" v-model="backcolor")
+      button(@click="exec('undo')")
+        i.fa.fa-undo
+      button(@click="exec('redo')")
+        i.fa.fa-repeat
+      button(@click="$refs.forecolor.click()")
+        i.fa.fa-font
+      button(@click="$refs.backcolor.click()")
+        i.fa.fa-font(style='background:#cccccc;')
+      button(@click="exec('bold')")
+        i.fa.fa-bold
+      button(@click="exec('italic')")
+        i.fa.fa-italic
+      button(@click="exec('underline')")
+        i.fa.fa-underline
+      button(@click="exec('strikeThrough')")
+        i.fa.fa-strikethrough
+      button(@click="exec('justifyLeft')")
+        i.fa.fa-align-left
+      button(@click="exec('justifyCenter')")
+        i.fa.fa-align-center
+      button(@click="exec('justifyRight')")
+        i.fa.fa-align-right
+      button(@click="exec('justifyFull')")
+        i.fa.fa-align-justify
+      button(@click="exec('indent')")
+        i.fa.fa-indent
+      button(@click="exec('outdent')")
+        i.fa.fa-outdent
+      button(@click="exec('insertUnorderedList')")
+        i.fa.fa-list-ul
+      button(@click="exec('insertOrderedList')")
+        i.fa.fa-list-ol
+      button(@click="exec('formatBlock',false,'p')") P
+      button(@click="exec('formatBlock',false,'h1')") H1
+      button(@click="exec('formatBlock',false,'h2')") H2
+      button(@click="exec('formatBlock',false,'h3')") H3
+      button(@click="exec('formatBlock',false,'h4')") H4
+      button(@click="exec('formatBlock',false,'h5')") H5
+      button(@click="exec('formatBlock',false,'h6')") H6
+      button(@click="insertHr") -
+      button(@click="createlink")
+        i.fa.fa-link
+      button(@click="exec('unlink')")
+        i.fa.fa-unlink
+      button(@click="openImage")
+        i.fa.fa-image
+      button(@click="exec('subscript')")
+        i.fa.fa-subscript
+      button(@click="exec('superscript')")
+        i.fa.fa-superscript
+      button(@click="exec('removeFormat')")
+        i.fa.fa-eraser
+      button(@click="mode='html'")
+        i.fa.fa-code
+    template(v-if="mode==='html'")
+      button(@click="mode='native'")
+        i.fa.fa-code
+  div(v-show="mode==='native'" ref="content" v-html="html" :contenteditable="enable")
+  textarea(v-if="mode==='html'" v-model="html")

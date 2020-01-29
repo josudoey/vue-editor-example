@@ -1,0 +1,3 @@
+div
+  button(v-if="!edit" @click="edit=true") 編輯
+  editor(:enable="edit" :source-html="html" @save="save")

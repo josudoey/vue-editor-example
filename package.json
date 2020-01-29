@@ -1,0 +1,61 @@
+{
+  "name": "vue-editor-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "nodemon": "nodemon",
+    "build": "webpack --config webpack/config.prod.js --verbose",
+    "dev": "nodemon -e pug,js --watch ./webpack ./index.js dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josudoey/vue-editor-example.git"
+  },
+  "author": "Joey Fang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josudoey/vue-editor-example/issues"
+  },
+  "homepage": "https://github.com/josudoey/vue-editor-example#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "commander": "^4.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "core-js": "^3.6.0",
+    "css-loader": "^3.4.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "file-loader": "^5.0.2",
+    "font-awesome": "^4.7.0",
+    "globby": "^11.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-harddisk-plugin": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.4.0",
+    "regenerator-runtime": "^0.13.2",
+    "terser-webpack-plugin": "^2.3.1",
+    "url-loader": "^3.0.0",
+    "vue": "^2.6.11",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {}
+}
