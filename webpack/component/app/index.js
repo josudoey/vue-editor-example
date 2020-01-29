@@ -40,8 +40,7 @@ const vm = new Vue({
       this.html = html
       this.edit = false
     },
-    insertImage: function (e) {
-      const { img, file } = e
+    insertImage: function ({ img, file }) {
       img.setAttribute('src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=')
       img.classList.add('upload-placeholder')
       setTimeout(function () {
