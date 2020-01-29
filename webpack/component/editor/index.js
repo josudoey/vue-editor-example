@@ -101,7 +101,7 @@ module.exports = {
         selection.getRangeAt(0).insertNode(img)
         selection.collapseToEnd()
         img.setAttribute('src', reader.result)
-        self.$emit('insertImage', {
+        self.$emit('insert-image', {
           img: img,
           file: file
         })
