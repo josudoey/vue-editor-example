@@ -1,25 +1,4 @@
 
-const styleElement = document.createElement('style')
-styleElement.type = 'text/css'
-document.getElementsByTagName('head')[0].appendChild(styleElement)
-
-styleElement.appendChild(document.createTextNode(`
-  .upload-placeholder {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    animation: spinner 1s linear infinite;
-  }
-  @keyframes spinner {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`))
-
 module.exports = {
   template: require('./template.pug'),
   props: ['sourceHtml', 'enable'],
@@ -113,9 +92,6 @@ module.exports = {
       const reader = new window.FileReader()
       reader.addEventListener('load', (e) => {
         const img = document.createElement('img')
-        img.setAttribute('src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=')
-        img.classList.add('upload-placeholder')
-
         const selection = window.getSelection()
         if (!selection.rangeCount) {
           return false
@@ -123,11 +99,11 @@ module.exports = {
         selection.deleteFromDocument()
         selection.getRangeAt(0).insertNode(img)
         selection.collapseToEnd()
-
-        setTimeout(function () {
-          img.setAttribute('src', reader.result)
-          img.classList.remove('upload-placeholder')
-        }, 1000)
+        img.setAttribute('src', reader.result)
+        this.$emit('insertImage', {
+          img: img,
+          file: file
+        })
       }, false)
       reader.readAsDataURL(file)
     }
