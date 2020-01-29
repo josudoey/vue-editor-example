@@ -89,6 +89,7 @@ module.exports = {
       return document.execCommand('createlink', false, url)
     },
     insertImage: function (file) {
+      const self = this
       const reader = new window.FileReader()
       reader.addEventListener('load', (e) => {
         const img = document.createElement('img')
@@ -100,7 +101,7 @@ module.exports = {
         selection.getRangeAt(0).insertNode(img)
         selection.collapseToEnd()
         img.setAttribute('src', reader.result)
-        this.$emit('insertImage', {
+        self.$emit('insertImage', {
           img: img,
           file: file
         })
